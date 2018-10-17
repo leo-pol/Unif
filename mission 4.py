@@ -9,10 +9,10 @@ def is_adn(s):
     g = ('g' in s)
     t = ('t' in s)
 
-    if a and c and g and t :
-        return True
-    else:
-        return False
+    for i in s:
+        if i != 'a' and i != 'c' and i != 'g' and i != 't':
+            return False
+    return True
 
 def positions(s, p):
     s = s.upper()
