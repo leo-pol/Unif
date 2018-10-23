@@ -311,6 +311,10 @@ def coordinate(commune,all_communes):
         return "Commune not found"
     return all_communes[binary_search(commune, all_communes)][1]
 
+def distance(commune1, commune2, all_communes):
+    return (math.sqrt((coordinate(commune1,all_communes)[0]-coordinate(commune2,all_communes)[0])**(2) + (coordinate(commune1,all_communes)[1]-coordinate(commune2,all_communes)[1])**2))
+
 
 print(verify_order(all_communes))
-print(coordinate("Andenne",all_communes))
+print(coordinate("Zulte",all_communes))
+print(distance("Zulte","Andenne",all_communes))
