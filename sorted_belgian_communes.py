@@ -314,7 +314,13 @@ def coordinate(commune,all_communes):
 def distance(commune1, commune2, all_communes):
     return (math.sqrt((coordinate(commune1,all_communes)[0]-coordinate(commune2,all_communes)[0])**(2) + (coordinate(commune1,all_communes)[1]-coordinate(commune2,all_communes)[1])**2))
 
-
+def distances(commune, all_communes):
+    l=[]
+    for i in range(len(all_communes)):
+        l.append((distance(commune,all_communes[i][0],all_communes),all_communes[i][0]))
+    return l
+        
 print(verify_order(all_communes))
 print(coordinate("Zulte",all_communes))
 print(distance("Zulte","Andenne",all_communes))
+print(distances("Zulte",all_communes))
