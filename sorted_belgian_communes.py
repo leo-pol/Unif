@@ -338,6 +338,6 @@ def distance_matrix(communes,all_communes):
 print(verify_order(all_communes))
 print(coordinate("Zulte",all_communes))
 print(distance("Zulte","Andenne",all_communes))
-#print(distances("Zulte",all_communes))
+print(distances("Zulte",all_communes))
 print(closest("Zulte", all_communes, 5))
 print(distance_matrix(all_communes,all_communes))
