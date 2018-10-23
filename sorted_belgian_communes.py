@@ -319,8 +319,25 @@ def distances(commune, all_communes):
     for i in range(len(all_communes)):
         l.append((distance(commune,all_communes[i][0],all_communes),all_communes[i][0]))
     return l
+
+def closest(commune, all_communes,k):
+    l=sorted(distances("Zulte",all_communes))[1:k+1]
+    m=[y for x,y in l]
+    return(m)
+
+def distance_matrix(communes,all_communes):
+    mx=[]
+    for j in communes:
+        l=[]
+        for i in communes:
+            l.append(distance(i[0],j[0],all_communes))
+        mx.append(l)
+
+    return mx
         
 print(verify_order(all_communes))
 print(coordinate("Zulte",all_communes))
 print(distance("Zulte","Andenne",all_communes))
-print(distances("Zulte",all_communes))
+#print(distances("Zulte",all_communes))
+print(closest("Zulte", all_communes, 5))
+print(distance_matrix(all_communes,all_communes))
