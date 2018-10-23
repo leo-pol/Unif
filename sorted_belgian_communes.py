@@ -286,14 +286,14 @@ all_communes = [("Aalst", (575061.8368696974, 5644396.819551783)),("Aalter", (53
 def binary_search ( name, list_of_names ):#importe du syllabus
   first = 0
   last = len(list_of_names)-1
-  found = False
+  found = None
 
-  while first<=last and not found:
+  while first<=last and found == None:
     middle = (first + last)//2
-      if list_of_names[middle] == name:
-      found = True
+    if list_of_names[middle][0] == name:
+          found = middle
     else:
-      if name < list_of_names[middle]:
+      if name < list_of_names[middle][0]:
         last = middle-1
       else:
         first = middle+1
@@ -307,7 +307,10 @@ def verify_order(communes): #Etape 1
     return True
 
 def coordinate(commune,all_communes):
-    
+    if binary_search(commune, all_communes)==None:
+        return "Commune not found"
+    return all_communes[binary_search(commune, all_communes)][1]
 
 
 print(verify_order(all_communes))
+print(coordinate("Andenne",all_communes))
